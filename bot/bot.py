@@ -1,6 +1,6 @@
 import argparse
 from dotenv import load_dotenv
-from handlers.test_handlers import handle_command
+from handlers.test_handlers.test_handlers import handle_command
 
 # Load environment variables
 load_dotenv(".env.bot.secret")
@@ -9,7 +9,7 @@ load_dotenv(".env.bot.secret")
 def handle_command(command: str) -> str:
     try:
         if command == "/start":
-            return "hi"
+            return "hi hi hi hi hi"
         elif command == "/help":
             return "Available commands: /start, /help, /health, /scores lab-##"
         elif command == "/health":
