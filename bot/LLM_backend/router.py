@@ -7,7 +7,7 @@ from .tools import TOOLS
 from .prompt import SYSTEM_PROMPT
 from .tool_executor import execute_tool
 
-def env_path(levels_up=3, filename=".env.bot.secret"):
+def env_path(levels_up=3, filename=".env.docker.secret"):
     path = __file__
     for _ in range(levels_up):
         path = os.path.dirname(path)
@@ -22,8 +22,8 @@ def route_intent(user_message: str) -> str:
     ]
 
     api_key = os.getenv("LLM_API_KEY")
-    base_url = os.getenv("LLM_API_BASE")
-    model = os.getenv("LLM_MODEL")
+    base_url = os.getenv("LLM_API_BASE_URL")
+    model = os.getenv("LLM_API_MODEL")
 
     client = OpenAI(api_key=api_key, base_url=base_url)
 
@@ -35,6 +35,7 @@ def route_intent(user_message: str) -> str:
             model=model,
             messages=messages,
             tools=TOOLS,
+            temperature = 0,
         )
 
 

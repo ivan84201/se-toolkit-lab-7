@@ -31,7 +31,7 @@ TOOLS = [
                 "properties": {
                     "lab": {
                         "type": "string",
-                        "description": "Lab identifier, e.g. lab-01",
+                        "description": "Lab identifier lab-xx, e.g. lab-01, lab-02",
                     },
                 },
                 "required": ["lab"],
@@ -48,7 +48,7 @@ TOOLS = [
                 "properties": {
                     "lab": {
                         "type": "string",
-                        "description": "Lab identifier, e.g. lab-01",
+                        "description": "Lab identifier lab-xx, e.g. lab-01, lab-02",
                     },
                 },
                 "required": ["lab"],
@@ -65,7 +65,7 @@ TOOLS = [
                 "properties": {
                     "lab": {
                         "type": "string",
-                        "description": "Lab identifier, e.g. lab-01",
+                        "description": "Lab identifier lab-xx, e.g. lab-01, lab-02",
                     },
                 },
                 "required": ["lab"],
@@ -82,7 +82,7 @@ TOOLS = [
                 "properties": {
                     "lab": {
                         "type": "string",
-                        "description": "Lab identifier, e.g. lab-01",
+                        "description": "Lab identifier lab-xx, e.g. lab-01, lab-02",
                     },
                 },
                 "required": ["lab"],
@@ -99,7 +99,7 @@ TOOLS = [
                 "properties": {
                     "lab": {
                         "type": "string",
-                        "description": "Lab identifier, e.g. lab-01",
+                        "description": "Lab identifier lab-xx, e.g. lab-01, lab-02",
                     },
                     "limit": {
                         "type": "integer",
@@ -120,7 +120,7 @@ TOOLS = [
                 "properties": {
                     "lab": {
                         "type": "string",
-                        "description": "Lab identifier, e.g. lab-01",
+                        "description": "Lab identifier lab-xx, e.g. lab-01, lab-02",
                     },
                 },
                 "required": ["lab"],
