@@ -7,7 +7,7 @@ from .tools import TOOLS
 from .prompt import SYSTEM_PROMPT
 from .tool_executor import execute_tool
 
-def env_path(levels_up=3, filename=".env.docker.secret"):
+def env_path(levels_up=3, filename=".env.bot.secret"):
     path = __file__
     for _ in range(levels_up):
         path = os.path.dirname(path)
