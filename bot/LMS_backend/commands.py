@@ -9,7 +9,6 @@ def env_path(levels_up=3, filename=".env.docker.secret"):
     return os.path.join(path, filename)
 
 load_dotenv(env_path())
-print(env_path())
 
 LMS_API_BASE_URL = os.getenv("LMS_API_BASE_URL", "http://localhost:42002")
 LMS_API_KEY = os.getenv("LMS_API_KEY", "")
@@ -95,15 +94,14 @@ def get_groups(lab_id: str):
     except requests.RequestException as e:
         return f"Backend error: {e}"
     
-def get_top_learners(lab_id: str = None, limit: int = 5):
+def get_top_learners(lab_id: str, limit: int = 5):
     try:
-        params = {"limit": limit}
-        if lab_id:
-            params["lab"] = lab_id
-
         resp = requests.get(
             f"{LMS_API_BASE_URL}/analytics/top-learners",
-            params=params,
+            params= {
+                "lab": lab_id, 
+                "limit": limit
+                },
             headers=HEADERS,
             timeout=5
         )
@@ -131,7 +129,7 @@ def trigger_sync():
         resp = requests.post(
             f"{LMS_API_BASE_URL}/pipeline/sync",
             headers=HEADERS,
-            timeout=5
+            timeout=60
         )
         resp.raise_for_status()
         return {"status": "sync triggered"}

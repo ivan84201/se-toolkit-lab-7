@@ -1,4 +1,5 @@
 from LMS_backend.commands import check_health, get_items, get_pass_rates
+from LLM_backend.router import route_intent
 #from LLM_backend.router import route_intent
 
 def handle_command(command: str) -> str:
