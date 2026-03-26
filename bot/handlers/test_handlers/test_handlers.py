@@ -3,10 +3,10 @@ from LMS_backend.commands import check_health, get_items, get_pass_rates
 def handle_command(command: str) -> str:
     try:
         if command == "/start":
-            return "hi hi hi hi hi"
+            return "welcome"
         
         elif command == "/help":
-            return "Available commands: /start, /help, /health, /scores lab-##"
+            return "Available commands:\n/start\n/help\n/health\n/scores lab-##"
 
         elif command == "/health":
             return check_health()
