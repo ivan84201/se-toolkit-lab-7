@@ -90,8 +90,8 @@ services:
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - LLM_API_KEY=${LLM_API_KEY}
-      - LLM_API_BASE_URL=${LLM_API_BASE}
-      - LLM_API_MODEL=${LLM_MODEL}
+      - LLM_API_BASE_URL=${LLM_API_BASE_URL}
+      - LLM_API_MODEL=${LLM_API_MODEL}
       - LMS_API_BASE_URL=http://backend:8000 # Use service name, not localhost
     depends_on:
       - backend
