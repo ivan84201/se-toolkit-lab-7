@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram.ext import ApplicationBuilder, MessageHandler, CallbackQueryHandler, filters
 from handlers.telegram_handlers import message_handler, button_callback
 
 import os
@@ -15,17 +15,15 @@ def env_path(levels_up=1, filename=".env.bot.secret"):
 
 load_dotenv(env_path())
 
+
+
 def main():
 
-    updater = Updater(os.getenv("BOT_TOKEN"))
-    dispatcher = updater.dispatcher
+    app = ApplicationBuilder().token("YOUR_BOT_TOKEN").build()
 
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, message_handler))
-    dispatcher.add_handler(MessageHandler(Filters.command, message_handler))
-    dispatcher.add_handler(CallbackQueryHandler(button_callback))
-
-    updater.start_polling()
-    updater.idle()
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, message_handler))
+    app.add_handler(MessageHandler(filters.COMMAND, message_handler))
+    app.add_handler(CallbackQueryHandler(button_callback))
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--test", type=str, help="Test a bot command")
